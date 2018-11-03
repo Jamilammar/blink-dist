@@ -16,7 +16,7 @@ webpackEmptyContext.id = "./src async recursive";
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <div class=\"header-image\">\n    <div class=\"top-container\">\n      <h1>\n        Welcome to {{mainTitle}}\n      </h1>\n      <h2>This is probably the most exciting app<br class=\"remove-break\"> you've ever seen!  It's ok, you can admit it.<br class=\"remove-break\"> Just admit it.</h2>\n    </div>\n  </div>\n</header>\n<main>\n  <div class=\"square-container\">\n    <input type=\"text\" class=\"search-input\" placeholder=\"Search\" [(ngModel)]=\"term\">\n    <ng-container *ngFor=\"let pokemon of pokemons |filter:term\"> \n      <div class=\"square\" [ngStyle]=\"{ 'background-image': 'url(' + pokemon.sprites.front_shiny + ')'}\">\n        <div class=\"square__content\">\n          <h3 class=\"square__title\">{{pokemon.name}}</h3>\n          <a class=\"square__link\" target=\"_blank\" href=\"https://pokeapi.co/api/v2/pokemon/{{pokemon.id}}\">More Info</a>\n        </div>\n      </div>\n    </ng-container> \n  </div>\n</main>\n<footer>\n  <div class=\"copyright\">\n    &copy; {{ date | date:'yyyy' }}, Blink.\n  </div>\n</footer>\n\n\n"
+module.exports = "<header>\n  <div class=\"header-image\">\n    <div class=\"top-container\">\n      <h1>\n        Welcome to {{mainTitle}} \n      </h1>\n      <h2>This is probably the most exciting app<br class=\"remove-break\"> you've ever seen!  It's ok, you can admit it.<br class=\"remove-break\"> Just admit it.</h2>\n    </div>\n  </div>\n</header>\n<main>\n  <div class=\"square-container\">\n    <input type=\"text\" class=\"search-input\" placeholder=\"Search\" [(ngModel)]=\"term\">\n    <ng-container *ngFor=\"let pokemon of pokemons |filter:term\"> \n      <div class=\"square\" [ngStyle]=\"{ 'background-image': 'url(' + pokemon.sprites.front_shiny + ')'}\">\n        <div class=\"square__content\">\n          <h3 class=\"square__title\">{{pokemon.name}}</h3>\n          <a class=\"square__link\" target=\"_blank\" href=\"https://pokeapi.co/api/v2/pokemon/{{pokemon.id}}\">More Info</a>\n        </div>\n      </div>\n    </ng-container> \n  </div>\n</main>\n<footer>\n  <div class=\"copyright\">\n    &copy; {{ date | date:'yyyy' }}, Blink.\n  </div>\n</footer>\n\n\n"
 
 /***/ }),
 
@@ -164,7 +164,7 @@ var PokemonService = (function () {
     }
     PokemonService.prototype.getPokemon = function () {
         var _this = this;
-        return this.http.get('http://pokeapi.co/api/v2/pokemon/?limit=10').switchMap(function (data) {
+        return this.http.get('https://pokeapi.co/api/v2/pokemon/?limit=10').switchMap(function (data) {
             var any = data.json();
             for (var i = 0; i <= 9; i++) {
                 _this.theUrls.push(any.results[i].url);
